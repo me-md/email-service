@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Symptom, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should be a thing" do
+    expect(2).to eq(2)
+  end
 end
