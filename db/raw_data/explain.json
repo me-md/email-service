@@ -1,0 +1,26 @@
+{
+    "supporting_evidence": [
+        {
+            "id": "s_1193",
+            "name": "Headache, severe",
+            "common_name": "Severe headache"
+        },
+        {
+            "id": "s_488",
+            "name": "Eyes sensitive to light",
+            "common_name": "Eyes sensitive to light"
+        },
+        {
+            "id": "s_418",
+            "name": "Stiff neck",
+            "common_name": "Stiff neck"
+        },
+        {
+            "id": "p_145",
+            "name": "Acceleration-deceleration injury",
+            "common_name": "Whiplash"
+        }
+    ],
+    "conflicting_evidence": [],
+    "unconfirmed_evidence": []
+}
