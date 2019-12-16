@@ -1,0 +1,49 @@
+{
+    "question": {
+        "type": "single",
+        "text": "Have you recently suffered an injury resulting from an abrupt change in movement, like a car accident?",
+        "items": [
+            {
+                "id": "p_145",
+                "name": "Acceleration-deceleration injury",
+                "choices": [
+                    {
+                        "id": "present",
+                        "label": "Yes"
+                    },
+                    {
+                        "id": "absent",
+                        "label": "No"
+                    },
+                    {
+                        "id": "unknown",
+                        "label": "Don't know"
+                    }
+                ]
+            }
+        ],
+        "extras": {}
+    },
+    "conditions": [
+        {
+            "id": "c_49",
+            "name": "Migraine",
+            "common_name": "Migraine",
+            "probability": 0.4116
+        },
+        {
+            "id": "c_563",
+            "name": "Bacterial meningitis",
+            "common_name": "Bacterial meningitis",
+            "probability": 0.1845
+        },
+        {
+            "id": "c_671",
+            "name": "Encephalitis",
+            "common_name": "Encephalitis",
+            "probability": 0.0824
+        }
+    ],
+    "extras": {},
+    "should_stop": false
+}
