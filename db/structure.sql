@@ -26,6 +26,27 @@ CREATE TABLE public.ar_internal_metadata (
 
 
 --
+-- Name: conditions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.conditions (
+    cid character varying NOT NULL,
+    name character varying,
+    common_name character varying,
+    sex_filter character varying,
+    category character varying,
+    prevalence character varying,
+    acuteness character varying,
+    severity character varying,
+    icd10_code character varying,
+    hint character varying,
+    triage_level character varying,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -68,6 +89,13 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: index_conditions_on_cid; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_conditions_on_cid ON public.conditions USING btree (cid);
+
+
+--
 -- Name: index_symptoms_on_sid; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -81,6 +109,7 @@ CREATE UNIQUE INDEX index_symptoms_on_sid ON public.symptoms USING btree (sid);
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
-('20191216201811');
+('20191216201811'),
+('20191216203512');
 
 
