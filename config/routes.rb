@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/symptoms', to: 'symptoms#index'
+      get '/symptoms/:location', to: 'symptoms#by_location'
       get '/conditions', to: 'conditions#index'
       get '/conditions/:id', to: 'conditions#show'
     end
