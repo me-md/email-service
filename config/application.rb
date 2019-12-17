@@ -33,5 +33,7 @@ module Triage
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.hosts << "ec2-3-136-45-48.us-east-2.compute.amazonaws.com"
+    config.active_record.schema_format = :sql
   end
 end
