@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Condition, type: :model do
+RSpec.describe do
   it "should be a thing" do
     expect(2).to eq(2)
   end
