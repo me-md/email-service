@@ -1,0 +1,31 @@
+<h1>Your MeMD Results</h1>
+
+<h3>Patient Info</h3>
+<ul>Sex: <%= @sex %></ul>
+<ul>Age: <%= @age %></ul>
+
+<h3>Primary Condition Information</h3>
+<h4><b><%= @main_condition["name"] %> (<%= @main_condition["common_name"] %>)</b></h4>
+<ul>Probability: <%= @main_condition_probability["probability"]*100.round(2) %>%</ul>
+<ul>Medical Category: <%= @main_condition["category"] %></ul>
+<ul>Recommendation: <%= @main_condition["triage_level"] %>. <%= @main_condition["hint"] %></ul>
+<ul>Supporting Evidence:
+	<% @supporting_evidence.each do |symptom| %>
+		<ul><%= symptom["common_name"] %></ul>
+	<% end %>
+</ul>
+
+<h4>Additional Possible Conditions</h4>
+<% @additional_conditions.each do |condition| %>
+	<ul> <%= condition["name"] %> (<%= condition["common_name"] %>) | <%= condition["probability"]*100.round(2) %>%</ul>
+<% end %>
+
+<h3>Doctors</h3>
+	<% @doctors.each do |doctor| %>
+		<p><b><%= doctor["profile"]["first_name"]%> <%= doctor["profile"]["middle_name"]%> <%= doctor["profile"]["last_name"]%>, <%= doctor["profile"]["title"]%></b></p>
+		<p>Practice: <%= doctor["practice"]["name"] %></p>
+		<p>Bio: <%= doctor["profile"]["bio"] %></p>
+		<p>Address: <%= doctor["practice"]["street"] %>, <%= doctor["practice"]["city"] %> <%= doctor["practice"]["state"] %>, <%= doctor["practice"]["zip"] %></p>
+		<p>Phone: <%= doctor["practice"]["phone"] %></p>
+		<br><br>
+	<% end %>
