@@ -9,7 +9,7 @@ class NoticesController < ApplicationController
 	private
 	def map_post(data)
 		conn.post('conditions') do |req|
-			req.params[:name] = data[:symptomFollowup][:conditions][0][:common_name]
+			req.params[:name] = data[:symptomFollowup][:conditions][0][:name]
 			req.params[:state] = data[:stateAbbreviation]
     end
 	end
