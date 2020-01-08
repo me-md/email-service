@@ -5,27 +5,27 @@
 <ul>Age: <%= @age %></ul>
 
 <h3>Primary Condition Information</h3>
-<h4><strong><%= @main_condition["name"] %> (<%= @main_condition["common_name"] %>)</strong></h4>
-<ul>Probability: <%= @main_condition_probability["probability"]*100.round(2) %>%</ul>
-<ul>Medical Category: <%= @main_condition["category"] %></ul>
-<ul>Recommendation: <%= @main_condition["triage_level"] %>. <%= @main_condition["hint"] %></ul>
+<h4><strong><%= @main_condition[:name] %> (<%= @main_condition[:common_name] %>)</strong></h4>
+<ul>Probability: <%= (@main_condition_probability[:probability]*100).round(0) %>%</ul>
+<ul>Medical Category: <%= @main_condition[:category] %></ul>
+<ul>Recommendation: <%= @main_condition[:triage_level] %>. <%= @main_condition[:hint] %></ul>
 <ul>Supporting Evidence:
 	<% @supporting_evidence.each do |symptom| %>
-		<ul><%= symptom["common_name"] %></ul>
+		<ul><%= symptom[:common_name] %></ul>
 	<% end %>
 </ul>
 
 <h4>Additional Possible Conditions</h4>
 <% @additional_conditions.each do |condition| %>
-	<ul> <%= condition["name"] %> (<%= condition["common_name"] %>) | <%= condition["probability"]*100.round(2) %>%</ul>
+	<ul> <%= condition[:name] %> (<%= condition[:common_name] %>) | <%= (condition[:probability]*100).round(0) %>%</ul>
 <% end %>
 
 <h3>Doctors</h3>
 	<% @doctors.each do |doctor| %>
-		<p><strong><%= doctor["profile"]["first_name"]%> <%= doctor["profile"]["middle_name"]%> <%= doctor["profile"]["last_name"]%>, <%= doctor["profile"]["title"]%></strong></p>
-		<p>Practice: <%= doctor["practice"]["name"] %></p>
-		<p>Bio: <%= doctor["profile"]["bio"] %></p>
-		<p>Address: <%= doctor["practice"]["street"] %>, <%= doctor["practice"]["city"] %> <%= doctor["practice"]["state"] %>, <%= doctor["practice"]["zip"] %></p>
-		<p>Phone: <%= doctor["practice"]["phone"] %></p>
+		<p><strong><%= doctor[:profile][:first_name]%> <%= doctor[:profile][:middle_name]%> <%= doctor[:profile][:last_name]%>, <%= doctor[:profile][:title]%></strong></p>
+		<p>Practice: <%= doctor[:practice][:name] %></p>
+		<p>Bio: <%= doctor[:profile][:bio] %></p>
+		<p>Address: <%= doctor[:practice][:street] %>, <%= doctor[:practice][:city] %> <%= doctor[:practice][:state] %>, <%= doctor[:practice][:zip] %></p>
+		<p>Phone: (<%= doctor[:practice][:phone][0..2] %>) <%= doctor[:practice][:phone][3..5] %> - <%= doctor[:practice][:phone][6..9] %></p>
 		<br><br>
 	<% end %>
