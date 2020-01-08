@@ -15,6 +15,8 @@
 	<% end %>
 </ul>
 
+<%= image_tag "https://memd-diagnosis-map-pro.herokuapp.com/conditions_map/v2?condition=#{@main_condition[:name]}", style: "width: 60%" %>
+
 <h4>Additional Possible Conditions</h4>
 <% @additional_conditions.each do |condition| %>
 	<ul> <%= condition[:name] %> (<%= condition[:common_name] %>) | <%= (condition[:probability]*100).round(0) %>%</ul>
