@@ -1,6 +1,6 @@
 class NoticesController < ApplicationController
 	def create
-		data = JSON.parse(request.body.read)
+		data = JSON.parse(request.body.read, symbolize_names: true)
 		map_post(data)
 		InfoMailer.send_record(params[:email], data).deliver_now
 		render json: {message: "email sent"}, status: :ok
@@ -9,8 +9,8 @@ class NoticesController < ApplicationController
 	private
 	def map_post(data)
 		conn.post('conditions') do |req|
-			req.params[:name] = data["symptomFollowup"]["conditions"][0]["common_name"]
-			req.params[:state] = data["stateAbbreviation"]
+			req.params[:name] = data[:symptomFollowup][:conditions][0][:common_name]
+			req.params[:state] = data[:stateAbbreviation]
     end
 	end
 
